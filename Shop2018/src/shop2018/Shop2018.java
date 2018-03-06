@@ -26,6 +26,8 @@ public class Shop2018 {
         koszyk.dodaj(chleb);
         koszyk.dodaj(maslo);
         koszyk.dodaj(jogurt);
+        koszyk.dodaj(jogurt);
+        koszyk.dodaj(jogurt);
         
         System.out.println(koszyk.doZaplaty());
         System.out.println(koszyk);
