@@ -28,7 +28,7 @@ public class Shop2018 {
         koszyk.dodaj(jogurt);
         
         System.out.println(koszyk.doZaplaty());
-        
+        System.out.println(koszyk);
     }
     
 }
