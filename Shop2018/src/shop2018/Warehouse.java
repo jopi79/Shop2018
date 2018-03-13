@@ -27,6 +27,12 @@ public class Warehouse {
         products.add(new Product("śmietana",new BigDecimal("1.5")));
     }
 
+    //TODO
+    public Collection<Product> productsAvailable()
+    {
+        return null;
+    }
+    
     public Collection<Product> productsSortedByName()
     {
         TreeSet<Product> set = new TreeSet();
@@ -42,6 +48,23 @@ public class Warehouse {
         return set;
     }
     
+    public void doOrder(Cart cart)
+    {
+        for(Product p : cart.getMap().keySet())
+        {
+            int count = cart.getMap().get(p);
+            for(Product pr : products)
+            {
+                if(pr.getName().equals(p.getName()))
+                {
+                    pr.setCount(pr.getCount()-count);
+                    break;
+                }
+            }
+            
+        }
+    }
+        
     @Override
     public String toString() {
         return products.toString();
@@ -52,5 +75,6 @@ public class Warehouse {
         System.out.println(w);
         System.out.println(w.productsSortedByName());
         System.out.println(w.productsSortedByPrice());
+        
     }
 }

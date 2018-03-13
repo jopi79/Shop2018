@@ -39,6 +39,10 @@ public class Cart {
         }
         return sum;
     }
+
+    public Map<Product, Integer> getMap() {
+        return map;
+    }
     
     public String toString()
     {
