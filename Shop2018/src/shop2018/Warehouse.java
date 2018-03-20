@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shop2018;
 
 import java.math.BigDecimal;
@@ -11,10 +6,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 
-/**
- *
- * @author Student
- */
 public class Warehouse {
     private List<Product> products = new ArrayList();
     
@@ -27,10 +18,17 @@ public class Warehouse {
         products.add(new Product("śmietana",new BigDecimal("1.5")));
     }
 
-    //TODO
     public Collection<Product> productsAvailable()
     {
-        return null;
+        Collection<Product> result = new ArrayList();
+        for(Product p : products)
+        {
+            if(p.getCount()>0)
+            {
+                result.add(p);
+            }
+        }
+        return result;
     }
     
     public Collection<Product> productsSortedByName()
@@ -50,9 +48,9 @@ public class Warehouse {
     
     public void doOrder(Cart cart)
     {
-        for(Product p : cart.getMap().keySet())
+        for(Product p : cart.getProducts())
         {
-            int count = cart.getMap().get(p);
+            int count = cart.getCount(p);
             for(Product pr : products)
             {
                 if(pr.getName().equals(p.getName()))
@@ -75,6 +73,7 @@ public class Warehouse {
         System.out.println(w);
         System.out.println(w.productsSortedByName());
         System.out.println(w.productsSortedByPrice());
+        System.out.println(w.productsAvailable());
         
     }
 }

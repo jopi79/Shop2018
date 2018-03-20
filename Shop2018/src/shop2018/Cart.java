@@ -7,6 +7,7 @@ package shop2018;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,14 @@ public class Cart {
         return sum;
     }
 
-    public Map<Product, Integer> getMap() {
-        return map;
+    public Collection<Product> getProducts()
+    {
+        return map.keySet();
+    }
+    
+    public int getCount(Product p)
+    {
+        return map.get(p);
     }
     
     public String toString()
